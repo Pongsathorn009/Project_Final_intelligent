@@ -262,3 +262,12 @@ def app_diabetes_nn():
 # เรียกหน้าแรก
 if __name__ == "__main__":
     app_home()
+import subprocess
+import sys
+
+# ลองติดตั้ง matplotlib ถ้าไม่มี
+try:
+    import matplotlib.pyplot as plt
+except ModuleNotFoundError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "matplotlib"])
+    import matplotlib.pyplot as plt
