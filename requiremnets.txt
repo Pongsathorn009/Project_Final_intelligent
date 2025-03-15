@@ -3,5 +3,3 @@ matplotlib
 pandas
 scikit-learn
 pandas
-subprocess
-sys
