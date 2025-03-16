@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -94,25 +93,6 @@ def diabetes_prediction(pregnancies, glucose, blood_pressure, skin_thickness, in
     result = "Diabetic (เป็นเบาหวาน)" if prediction == 1 else "Not Diabetic (ไม่เป็นเบาหวาน)"
 
     results = evaluate_model(model, X_train, y_train, X_test, y_test, X_train_scaled, X_test_scaled)
-
-    # กราฟแสดงค่าประเมินของโมเดล
-    metrics = list(results.values())
-    metrics_names = list(results.keys())
-
-    # ลดขนาดกราฟแต่ยังคงความชัดเจน
-    fig, ax = plt.subplots(figsize=(5, 2), dpi=150)  
-
-    # สร้างกราฟแบบ bar horizontal
-    ax.barh(metrics_names, metrics, color='skyblue')
-
-    # ปรับขนาดตัวอักษรของ x-axis, y-axis และ title ให้เหมาะสม
-    ax.set_xlabel('Value', fontsize=8)  
-    ax.set_title('Model Evaluation Metrics', fontsize=10)  
-    ax.tick_params(axis='y', labelsize=7)  
-    ax.tick_params(axis='x', labelsize=7) 
-
-    # แสดงกราฟ
-    st.pyplot(fig)
 
     return result, results
 
@@ -262,6 +242,7 @@ def app_diabetes_nn():
 # เรียกหน้าแรก
 if __name__ == "__main__":
     app_home()
+    
 import subprocess
 import sys
 
