@@ -29,9 +29,9 @@ def app_home():
     # หน้า "Home"
     if st.session_state.page == "Home":
         # เพิ่มคอลัมน์เพื่อจัดรูปภาพกลางหน้า
-        col1, col2, col3 = st.columns([1, 2, 1])  # ใช้ 3 คอลัมน์เพื่อให้รูปภาพอยู่ตรงกลาง
+        col1, col2, col3 = st.columns([1, 2, 1]) 
         with col2:
-            st.image("image/body.png", caption="Disease Prediction", width=800)  # ขนาดที่เพิ่มขึ้น 1 เท่า
+            st.image("image/body.png", caption="Disease Prediction", width=800)  
 
     # หน้า "Machine Learning"
     elif st.session_state.page == "Machine Learning":
@@ -263,12 +263,4 @@ def app_diabetes_nn():
 if __name__ == "__main__":
     app_home()
     
-import subprocess
-import sys
 
-# ลองติดตั้ง matplotlib ถ้าไม่มี
-try:
-    import matplotlib.pyplot as plt
-except ModuleNotFoundError:
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "matplotlib"])
-    import matplotlib.pyplot as plt
